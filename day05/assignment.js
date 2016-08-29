@@ -8,6 +8,7 @@
 
 function btnClick(){
 
+
     var btn = document.getElementById("btn").value;
         console.log(btn);
     var in1 = document.getElementById("box1").value;
@@ -17,12 +18,18 @@ function btnClick(){
     var divIn = document.getElementById("textBox").innerHTML;
         console.log(divIn);
 
+    inputAlphabet(in1,"Alert!")
+
+    if (inputAlphabet() === false){
+        alert("Please enter only alpha characters.");
+    }
+
     if (in1 > ""){
-            alert("Hello JavaScript!")
-            box1.value = "";
+            box1.value = "Hello JavaScript!";
+            alert(box1.value)
     }else {
         alert("Please enter a value in input box 1.");
-    };
+    }
 
     if (in2 > ""){
         textBox.innerHTML = in2;
@@ -30,6 +37,21 @@ function btnClick(){
     }else {
         alert("Please enter a value in input box 2.");
     };
+}
+
+function inputAlphabet(inputtext,alertMsg){
+    alert("in inputAlphabet function",inputtext);
+    var alphaExp = /^[a-zA-Z]+$/;
+    if(inputtext.match(alphaExp)){
+        alert("yes alpha")
+        return true;
+    }
+    else{
+        alert("no alpha")
+        // document.getElementById('p1').innerText = alertMsg;
+        // inputtext.focus();
+        return false;
+        }
 }
 
 btn.onclick = btnClick;

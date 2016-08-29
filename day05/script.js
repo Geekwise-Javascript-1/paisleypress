@@ -102,16 +102,35 @@
 //
 // getFruit();
 
-for (var i = 1;i <= 10; i++)
-        {if (i === 5 || i === 7)
-            {continue;
-        }
-        console.log(i);
-    }
+// for (var i = 1;i <= 10; i++)
+//         {if (i === 5 || i === 7)
+//             {continue;
+//         }
+//         console.log(i);
+//     }
+//
+// for (var i = 1;i <= 10; i++){
+//         if (i === 6){
+//             break;
+//         }
+//     console.log(i);
+// }
 
-for (var i = 1;i <= 10; i++){
-        if (i === 6){
-            break;
-        }
-    console.log(i);
+var input1 = document.getElementById('input1');
+var inputs = document.getElementsByClassName('input');
+var button = document.getElementById("btn");
+var inputsTag = document.getElelementByTagname("input");
+var btnEl = document.querySelector('button[type="button"]');
+var btn = document.getElementById('btn');
+var btnEls = document.querySelectorAll('label input');
+
+console.log(input1);
+console.log(inputs);
+
+function getInputs(){
+    for (i=0; i< inputs.length; i++){
+        console.log(inputs[i].value);
+    }
 }
+
+btn.onclick = getInputs;

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Radio Button DOM Insertion</title>
+</head>
+
+<body>
+  <form>
+    <input type="button" onclick="createRadioButton()" value="Create two Radio Buttons" />
+    <br />
+    <input type="button" onclick="displayHTML(document.body.outerHTML)" value="Click here to see HTML" />
+  </form>
+  <div id="displayBox"></div>
+
+  <script>
+    function createRadioButton() {
+      // Create radio button object with value="First Choice" and then insert this element into the document hierarchy.
+      var newRadioButton = document.createElement('input');
+      newRadioButton.setAttribute('type', 'radio');
+      newRadioButton.setAttribute('name', 'radio1');
+      newRadioButton.setAttribute('value', 'First Choice');
+      document.body.appendChild(newRadioButton); // Since the second argument is implicity null, this inserts the radio button at the end of this node's list of children ("this" node refers to the body element).
+
+      // Create radio button object with value="Second Choice" and then insert this element into the document hierarchy.
+      newRadioButton = document.createElement('input');
+      newRadioButton.setAttribute('type', 'radio');
+      newRadioButton.setAttribute('name', 'radio2');
+      newRadioButton.setAttribute('value', 'Second Choice');
+      document.body.appendChild(newRadioButton); // Insert the radio button at the end of this node's list of children (which is directly after the radio button we just inserted).
+    }
+
+    function displayHTML(htmlString) {
+      var temp = document.createElement('div');
+      temp.appendChild(document.createTextNode(htmlString));
+      document.getElementById('displayBox').innerHTML = "<pre>" + temp.innerHTML + "</pre>";
+    }
+  </script>
+</body>
+
+</html>
